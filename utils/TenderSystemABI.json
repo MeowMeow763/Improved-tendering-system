@@ -1,443 +1,475 @@
 [
-  {
-    "inputs": [
-      {
-        "internalType": "string",
-        "name": "_name",
-        "type": "string"
-      },
-      {
-        "components": [
-          {
-            "internalType": "uint256",
-            "name": "completedProjects",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "inHandProjects",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "electricalProjects",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "enlistments",
-            "type": "uint256"
-          }
-        ],
-        "internalType": "struct TenderSystem.ProjectDetails",
-        "name": "_projects",
-        "type": "tuple"
-      },
-      {
-        "components": [
-          {
-            "internalType": "uint256",
-            "name": "bscEngineers",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "bscEngineersExp",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "associateEngineers",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "associateEngineersExp",
-            "type": "uint256"
-          }
-        ],
-        "internalType": "struct TenderSystem.PersonnelDetails",
-        "name": "_personnel",
-        "type": "tuple"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_equipmentScore",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_financialScore",
-        "type": "uint256"
-      }
-    ],
-    "name": "applyForPreQualification",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "bytes",
-        "name": "_projectId",
-        "type": "bytes"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_preqDate",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_bidsSubDate",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_signDate",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_bondAmnt",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_estCost",
-        "type": "uint256"
-      }
-    ],
-    "name": "createTender",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "contractor",
-        "type": "address"
-      },
-      {
-        "internalType": "bytes",
-        "name": "_projectId",
-        "type": "bytes"
-      }
-    ],
-    "name": "evaluateContractorBid",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "bytes",
-        "name": "_projectId",
-        "type": "bytes"
-      },
-      {
-        "internalType": "string[]",
-        "name": "descriptions",
-        "type": "string[]"
-      },
-      {
-        "internalType": "uint256[]",
-        "name": "quantities",
-        "type": "uint256[]"
-      },
-      {
-        "internalType": "uint256[]",
-        "name": "rates",
-        "type": "uint256[]"
-      }
-    ],
-    "name": "submitContractorBid",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "stateMutability": "nonpayable",
-    "type": "constructor"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "name": "contractorAddresses",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "name": "contractorBids",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "bidAmount",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "evaluationScore",
-        "type": "uint256"
-      },
-      {
-        "internalType": "bool",
-        "name": "evaluated",
-        "type": "bool"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "name": "contractors",
-    "outputs": [
-      {
-        "internalType": "string",
-        "name": "name",
-        "type": "string"
-      },
-      {
-        "components": [
-          {
-            "internalType": "uint256",
-            "name": "completedProjects",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "inHandProjects",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "electricalProjects",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "enlistments",
-            "type": "uint256"
-          }
-        ],
-        "internalType": "struct TenderSystem.ProjectDetails",
-        "name": "projects",
-        "type": "tuple"
-      },
-      {
-        "components": [
-          {
-            "internalType": "uint256",
-            "name": "bscEngineers",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "bscEngineersExp",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "associateEngineers",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "associateEngineersExp",
-            "type": "uint256"
-          }
-        ],
-        "internalType": "struct TenderSystem.PersonnelDetails",
-        "name": "personnel",
-        "type": "tuple"
-      },
-      {
-        "components": [
-          {
-            "internalType": "uint256",
-            "name": "equipmentScore",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "financialScore",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "totalScore",
-            "type": "uint256"
-          },
-          {
-            "internalType": "bool",
-            "name": "isQualified",
-            "type": "bool"
-          }
-        ],
-        "internalType": "struct TenderSystem.ScoreDetails",
-        "name": "scores",
-        "type": "tuple"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "contractor",
-        "type": "address"
-      }
-    ],
-    "name": "getEvaluationScore",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "lowestBid",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "owner",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "qualificationThreshold",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "bytes",
-        "name": "",
-        "type": "bytes"
-      }
-    ],
-    "name": "tenders",
-    "outputs": [
-      {
-        "internalType": "bytes",
-        "name": "projectId",
-        "type": "bytes"
-      },
-      {
-        "internalType": "uint256",
-        "name": "preqDate",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "bidsSubDate",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "signDate",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "bondAmount",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "estimatedCost",
-        "type": "uint256"
-      },
-      {
-        "internalType": "address",
-        "name": "employer",
-        "type": "address"
-      },
-      {
-        "internalType": "bool",
-        "name": "isCreated",
-        "type": "bool"
-      },
-      {
-        "internalType": "bool",
-        "name": "preQualified",
-        "type": "bool"
-      },
-      {
-        "internalType": "bool",
-        "name": "bidSubmitted",
-        "type": "bool"
-      },
-      {
-        "internalType": "bool",
-        "name": "bidEvaluated",
-        "type": "bool"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  }
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "completedProjects",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "inHandProjects",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "electricalProjects",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "enlistments",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct TenderSystem.ProjectDetails",
+				"name": "_projects",
+				"type": "tuple"
+			},
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "bscEngineers",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "bscEngineersExp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "associateEngineers",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "associateEngineersExp",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct TenderSystem.PersonnelDetails",
+				"name": "_personnel",
+				"type": "tuple"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_equipmentScore",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_financialScore",
+				"type": "uint256"
+			}
+		],
+		"name": "applyForPreQualification",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "contractorAddresses",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "contractorBids",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "bidAmount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "evaluationScore",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "evaluated",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "contractors",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "completedProjects",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "inHandProjects",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "electricalProjects",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "enlistments",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct TenderSystem.ProjectDetails",
+				"name": "projects",
+				"type": "tuple"
+			},
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "bscEngineers",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "bscEngineersExp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "associateEngineers",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "associateEngineersExp",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct TenderSystem.PersonnelDetails",
+				"name": "personnel",
+				"type": "tuple"
+			},
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "equipmentScore",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "financialScore",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalScore",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "isQualified",
+						"type": "bool"
+					}
+				],
+				"internalType": "struct TenderSystem.ScoreDetails",
+				"name": "scores",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes",
+				"name": "_projectId",
+				"type": "bytes"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_preqDate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_bidsSubDate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_signDate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_bondAmnt",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_estCost",
+				"type": "uint256"
+			}
+		],
+		"name": "createTender",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "contractor",
+				"type": "address"
+			},
+			{
+				"internalType": "bytes",
+				"name": "_projectId",
+				"type": "bytes"
+			}
+		],
+		"name": "evaluateContractorBid",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getAllTenderIds",
+		"outputs": [
+			{
+				"internalType": "bytes[]",
+				"name": "",
+				"type": "bytes[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "contractor",
+				"type": "address"
+			}
+		],
+		"name": "getEvaluationScore",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "lowestBid",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "qualificationThreshold",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes",
+				"name": "_projectId",
+				"type": "bytes"
+			},
+			{
+				"internalType": "string[]",
+				"name": "descriptions",
+				"type": "string[]"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "quantities",
+				"type": "uint256[]"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "rates",
+				"type": "uint256[]"
+			}
+		],
+		"name": "submitContractorBid",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "tenderIds",
+		"outputs": [
+			{
+				"internalType": "bytes",
+				"name": "",
+				"type": "bytes"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes",
+				"name": "",
+				"type": "bytes"
+			}
+		],
+		"name": "tenders",
+		"outputs": [
+			{
+				"internalType": "bytes",
+				"name": "projectId",
+				"type": "bytes"
+			},
+			{
+				"internalType": "uint256",
+				"name": "preqDate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "bidsSubDate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "signDate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "bondAmount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "estimatedCost",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "employer",
+				"type": "address"
+			},
+			{
+				"internalType": "bool",
+				"name": "isCreated",
+				"type": "bool"
+			},
+			{
+				"internalType": "bool",
+				"name": "preQualified",
+				"type": "bool"
+			},
+			{
+				"internalType": "bool",
+				"name": "bidSubmitted",
+				"type": "bool"
+			},
+			{
+				"internalType": "bool",
+				"name": "bidEvaluated",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
 ]

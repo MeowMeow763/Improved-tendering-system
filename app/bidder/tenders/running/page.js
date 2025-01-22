@@ -1,27 +1,45 @@
 "use client";
-import React from "react";
+
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { getContract } from "/services/contractService";
+import { ethers } from "ethers";
 
 const RunningTendersPage = () => {
-  const tenders = [
-    {
-      id: 3,
-      title:
-        "Design Review and Construction Supervision of Ziarat Mor-Kach Harnai Road",
-      publicationDate: "Friday 20 August 2021 12:09:10",
-      submissionClosing: "Wednesday 15 September 2021 15:45:00",
-      openingDate: "Wednesday 15 September 2021 15:45:00",
-      status: "Running",
-    },
-    {
-      id: 4,
-      title: "Construction of Ziarat Mor-Kach Harnai Sanjavi Road",
-      publicationDate: "Wednesday 11 August 2021 14:32:30",
-      submissionClosing: "Friday 27 August 2021 14:15:00",
-      openingDate: "Friday 27 August 2021 14:45:00",
-      status: "Running",
-    },
-  ];
+  const [tenders, setTenders] = useState([]);
+
+  // Fetch Tenders from the Smart Contract
+  const fetchTenders = async () => {
+    try {
+      const contract = await getContract();
+
+      // Fetch tender IDs
+      const tenderIds = await contract.getAllTenderIds();
+
+      // Fetch tender details for each ID
+      const tenderDetails = await Promise.all(
+        tenderIds.map(async (id) => {
+          const tender = await contract.tenders(id);
+          return {
+            id: ethers.utils.parseBytes32String(id),
+            title: ethers.utils.parseBytes32String(tender.projectId),
+            publicationDate: new Date(tender.preqDate * 1000).toLocaleString(),
+            submissionClosing: new Date(tender.bidsSubDate * 1000).toLocaleString(),
+            openingDate: new Date(tender.signDate * 1000).toLocaleString(),
+            status: tender.bidSubmitted ? "Running" : "Closed",
+          };
+        })
+      );
+
+      setTenders(tenderDetails);
+    } catch (error) {
+      console.error("Error fetching tenders:", error.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchTenders();
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-100 p-8">
@@ -45,8 +63,8 @@ const RunningTendersPage = () => {
             </tr>
           </thead>
           <tbody>
-            {tenders.map((tender) => (
-              <tr key={tender.id}>
+            {tenders.map((tender, index) => (
+              <tr key={index}>
                 <td className="border border-gray-300 p-2 text-center">{tender.id}</td>
                 <td className="border border-gray-300 p-2">{tender.title}</td>
                 <td className="border border-gray-300 p-2 text-center">

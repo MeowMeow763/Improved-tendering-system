@@ -1,8 +1,25 @@
-import web3 from "./web3";
-import TenderSystemABI from "./TenderSystemABI.json"; // Ensure this path is correct
+import { ethers } from "ethers";
+import TenderSystemABI from "./TenderSystemABI.json";
 
-const contractAddress = "0xCA20FE49c7464D93A15A80BEc7Eae6b4662706AF"; // Replace with your contract's address
+async function getContract() {
+  try {
+    // Ensure MetaMask is connected
+    if (!window.ethereum) {
+      throw new Error("MetaMask is not available. Please install MetaMask.");
+    }
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
 
-const tenderSystem = new web3.eth.Contract(TenderSystemABI, contractAddress);
+    // Contract address and ABI
+    const contractAddress = "0x2c39AeB9E8a8acb67529894dB3fd0147DCd8576b";
+    const contract = new ethers.Contract(contractAddress, TenderSystemABI, signer);
 
-export default tenderSystem;
+    return contract;
+  } catch (error) {
+    console.error("Error initializing contract:", error.message);
+    alert("Failed to initialize the smart contract. Check your connection and try again.");
+    throw error;
+  }
+}
+
+export default getContract;
